@@ -1,13 +1,13 @@
-package com.example.jsoncustom;
+package com.example.jacksonannotations;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JsoncustomApplication {
+public class JacksonAnnotationsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JsoncustomApplication.class, args);
+		SpringApplication.run(JacksonAnnotationsApplication.class, args);
 	}
 
 }

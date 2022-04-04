@@ -1,6 +1,6 @@
-package com.example.jsoncustom.jsonconfig;
+package com.example.jacksonannotations.jsonconfig;
 
-import com.example.jsoncustom.jsonserialize.CustomDateSerializer;
+import com.example.jacksonannotations.jsonserialize.CustomDateSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.context.annotation.Bean;

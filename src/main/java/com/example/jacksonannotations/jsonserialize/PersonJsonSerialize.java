@@ -1,4 +1,4 @@
-package com.example.jsoncustom.jsonserialize;
+package com.example.jacksonannotations.jsonserialize;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 

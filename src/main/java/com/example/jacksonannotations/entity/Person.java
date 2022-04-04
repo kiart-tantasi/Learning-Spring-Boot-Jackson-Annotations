@@ -1,4 +1,4 @@
-package com.example.jsoncustom.entity;
+package com.example.jacksonannotations.entity;
 
 import java.util.Date;
 

@@ -1,7 +1,6 @@
-package com.example.jsoncustom.jsonserialize;
+package com.example.jacksonannotations.jsonserialize;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonGetter;
 
 import java.util.HashMap;
 import java.util.Map;

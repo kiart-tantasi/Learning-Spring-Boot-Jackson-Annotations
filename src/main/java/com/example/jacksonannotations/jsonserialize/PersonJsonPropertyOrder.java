@@ -1,4 +1,4 @@
-package com.example.jsoncustom.jsonserialize;
+package com.example.jacksonannotations.jsonserialize;
 
 // to get this (id / name / somethingElse)
 // {"id":0.43746573775387776,"name":"json property order name test","somethingElse":"something else"}

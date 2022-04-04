@@ -1,9 +1,9 @@
-package com.example.jsoncustom.controller;
+package com.example.jacksonannotations.controller;
 
-import com.example.jsoncustom.entity.*;
-import com.example.jsoncustom.jsonserialize.*;
-import com.example.jsoncustom.response.ResponseHandler;
-import com.example.jsoncustom.service.SayHiService;
+import com.example.jacksonannotations.entity.*;
+import com.example.jacksonannotations.jsonserialize.*;
+import com.example.jacksonannotations.response.ResponseHandler;
+import com.example.jacksonannotations.service.SayHiService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
