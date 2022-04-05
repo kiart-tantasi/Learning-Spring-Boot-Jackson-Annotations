@@ -21,7 +21,7 @@ import java.util.HashMap;
 // SOURCE: https://www.baeldung.com/jackson-annotations
 
 @RestController
-public class AppController {
+public class SerializerController {
 
     @GetMapping("/test")
     public ResponseEntity<Person> getDummyJson() {
@@ -103,7 +103,7 @@ public class AppController {
     // -------- test two instances -------- // (not related to Jackson Annotations)
     private final SayHiService sayHiService;
     @Autowired
-    public AppController(SayHiService sayHiService) { // @Qualifier("sayHiOneService")
+    public SerializerController(SayHiService sayHiService) { // @Qualifier("sayHiOneService")
         this.sayHiService = sayHiService;
     }
     @GetMapping("/service")
