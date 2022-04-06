@@ -31,7 +31,7 @@ public class SerializerController {
     }
 
     @GetMapping("/json/{id}")
-    public ResponseEntity<HashMap> withResponseHandler(@PathVariable int id) {
+    public ResponseEntity<HashMap> withResponseHandler(@PathVariable Integer id) {
         ArrayList<String> stringArrayList = new ArrayList<String>();
         stringArrayList.add("A");
         stringArrayList.add("B");
@@ -82,12 +82,18 @@ public class SerializerController {
         PersonJsonValue personJsonValue = new PersonJsonValue("John", "Benedict");
         return personJsonValue;
     }
+    // to select the method to send json
 
     @GetMapping("jsonrootname")
     public String personJsonRootName() throws JsonProcessingException {
         PersonJsonRootName personJsonRootName = new PersonJsonRootName("564236",5000L);
+
+        // enable wrapping
         ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.WRAP_ROOT_VALUE);
+
+        // write result in String form
         String result = mapper.writeValueAsString(personJsonRootName);
+
         return result;
     }
 

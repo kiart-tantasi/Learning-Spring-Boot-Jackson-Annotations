@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 @RestController
 public class DeserializerController {
@@ -17,7 +16,9 @@ public class DeserializerController {
     public PersonJsonCreator personJsonCreator() throws IOException {
         String jsonData = "{\"jsonFirstName\":\"Maria\",\"jsonLastName\":\"Okawa\"}";
 
-        PersonJsonCreator result = new ObjectMapper().readerFor(PersonJsonCreator.class).readValue(jsonData);
+        PersonJsonCreator result = new ObjectMapper()
+                .readerFor(PersonJsonCreator.class)
+                .readValue(jsonData);
 
         return result;
     }
@@ -26,11 +27,11 @@ public class DeserializerController {
     public PersonJacksonInject personJacksonInject() throws IOException {
         String jsonData = "{\"name\":\"dummy name\"}";
 
-        InjectableValues inject = new InjectableValues.Std()
+        InjectableValues injectId = new InjectableValues.Std()
                 .addValue(int.class, 1);
 
         PersonJacksonInject result = new ObjectMapper()
-                .reader(inject)
+                .reader(injectId)
                 .forType(PersonJacksonInject.class)
                 .readValue(jsonData);
 
@@ -60,29 +61,21 @@ public class DeserializerController {
 
         return result;
     }
+    // This works like @JsonCreator with @JsonProperty
+    // The difference is that @JsonCreator is used in constructor and @JsonSetter is used in set method
 
     @GetMapping("jsondeserialize")
     public String personJsonDeserialize() throws IOException {
-        String jsonDate = "{\"date\":\"1-1-2001 01:00:00\"}";
+        String jsonDate = "{\"name\":\"Gamma\",\"date\":\"1-1-2001 01:00:00\"}";
 
         PersonJsonDeserialize preResult = new ObjectMapper()
                 .readerFor(PersonJsonDeserialize.class)
                 .readValue(jsonDate);
 
+        String nameResult = preResult.name;
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-        String result = formatter.format(preResult.date);
-        return result;
-    }
-
-    @GetMapping("jsondeserializefullname")
-    public PersonJsonDeserializeFullName getFullName() throws IOException {
-        String jsonData = "{\"name\":\"Gamma\"}";
-
-        PersonJsonDeserializeFullName result = new ObjectMapper()
-                .readerFor(PersonJsonDeserializeFullName.class)
-                .readValue(jsonData);
-
-        return result;
+        String dateResult = formatter.format(preResult.date);
+        return "After @JsonDeserialize: " + nameResult + " " + dateResult;
     }
 
     @GetMapping("jsonalias")
@@ -95,5 +88,6 @@ public class DeserializerController {
 
         return result;
     }
+    // This also works like @JsonCreator and @JsonSetter but it can accept multiple values (in String[] form).
 
 }

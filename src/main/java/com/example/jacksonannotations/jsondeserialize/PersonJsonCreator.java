@@ -8,8 +8,11 @@ public class PersonJsonCreator {
     public String lastName;
 
     @JsonCreator
-    public PersonJsonCreator(@JsonProperty("jsonFirstName") String jsonFirstName, @JsonProperty("jsonLastName") String jsonLastName) {
+    public PersonJsonCreator(
+            @JsonProperty("jsonFirstName") String jsonFirstName,
+            @JsonProperty("jsonLastName") String jsonLastName
+    ) {
         this.firstName = jsonFirstName;
-        this.lastName = jsonFirstName;
+        this.lastName = jsonLastName;
     }
 }
