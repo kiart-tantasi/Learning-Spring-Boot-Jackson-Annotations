@@ -24,7 +24,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler
     public ResponseEntity<HashMap> allExceptionsHandler(Exception ex) {
         return ResponseHandler.createResponse(
-                "Bad Request",
+                ex.getMessage(),
                 HttpStatus.BAD_REQUEST,
                 null
         );

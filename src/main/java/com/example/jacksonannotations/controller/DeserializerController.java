@@ -90,4 +90,13 @@ public class DeserializerController {
     }
     // This also works like @JsonCreator and @JsonSetter but it can accept multiple values (in String[] form).
 
+    @GetMapping("jsonignoreproperties")
+    public PersonJsonIgnoreProperties personJsonIgnoreProperties() throws IOException {
+        String jsonData ="{\"firstName\":\"Kiart\",\"lastName\":\"Tantasi\",\"age\":30}";
+        PersonJsonIgnoreProperties result = new ObjectMapper()
+                .readerFor(PersonJsonIgnoreProperties.class)
+                .readValue(jsonData);
+        return result;
+    }
+
 }
